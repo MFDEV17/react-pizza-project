@@ -1,19 +1,7 @@
-import Header from "./components/Header";
-import Categories from "./components/Categories";
-import PizzaList from "./components/pizzaList/PizzaList";
+import HomePage from "./pages/HomePage";
 
 function App() {
-  return (
-    <div className="wrapper">
-      <Header/>
-      <div className="content">
-        <div className="container">
-          <Categories/>
-          <PizzaList/>
-        </div>
-      </div>
-    </div>
-  );
+  return <HomePage/>;
 }
 
 export default App;
