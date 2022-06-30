@@ -8,7 +8,7 @@ function App() {
 
   useEffect(() => {
     dispatch(fetchPizzas());
-  }, []);
+  }, [dispatch]);
 
   return <HomePage />;
 }
