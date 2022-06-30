@@ -1,5 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const findSameProduct = (list, targetName, targetSize, targetDough) => {
+  return list.findIndex(
+    ({ name, size, dough }) =>
+      name === targetName && targetSize === size && targetDough === dough
+  );
+};
+
 const cartSlice = createSlice({
   name: "cart",
   initialState: {
@@ -9,9 +16,25 @@ const cartSlice = createSlice({
   },
   reducers: {
     addItem: (state, action) => {
-      state.orderList.push(action.payload);
-      state.sum += action.payload.price;
-      state.count += 1;
+      const indexOfFind = findSameProduct(
+        state.orderList,
+        action.payload.name,
+        action.payload.size,
+        action.payload.dough
+      );
+
+      if (indexOfFind === -1) {
+        state.orderList.push(action.payload);
+        state.sum += action.payload.price;
+        state.count += 1;
+      } else {
+        state.orderList[indexOfFind].count += 1;
+        state.orderList[indexOfFind].currentSum =
+          state.orderList[indexOfFind].count *
+          state.orderList[indexOfFind].price;
+        state.count += 1;
+        state.sum += state.orderList[indexOfFind].price;
+      }
     },
     deleteItem: (state, action) => {
       state.count -= state.orderList[action.payload].count;
