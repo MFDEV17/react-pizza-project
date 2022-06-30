@@ -1,23 +1,28 @@
 import CartTitle from "./CartTitle";
 import CartContentList from "./cart_content_list/CartContentlist";
+import {useSelector} from "react-redux";
+import {getOrderList, getSum} from "../../redux/cartSlice";
 
 const CartPage = () => {
+  const orderList = useSelector(getOrderList);
+  const sum = useSelector(getSum);
+  
   return (
     <div className="wrapper">
       <div className="content">
         <div className="container container--cart">
           <div className="cart">
-            <CartTitle/>
-            <CartContentList/>
+            <CartTitle />
+            <CartContentList />
             <div className="cart__bottom">
               <div className="cart__bottom-details">
                 <span>
                   {" "}
-                  Всего пицц: <b>3 шт.</b>{" "}
+                  Всего пицц: <b>{orderList.length} шт.</b>{" "}
                 </span>
                 <span>
                   {" "}
-                  Сумма заказа: <b>900 ₽</b>{" "}
+                  Сумма заказа: <b>{sum} ₽</b>{" "}
                 </span>
               </div>
               <div className="cart__bottom-buttons">
