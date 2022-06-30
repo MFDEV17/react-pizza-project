@@ -1,6 +1,6 @@
 import React from "react";
-import Categories from "../components/Categories";
-import PizzaList from "../components/pizzaList/PizzaList";
+import Categories from "../../components/Categories";
+import PizzaList from "../../components/pizzaList/PizzaList";
 import ContentWrapper from "./ContentWrapper";
 
 const HomePage = () => {
