@@ -1,11 +1,11 @@
 import React from "react";
 import logo from "../assets/img/pizza-logo.svg";
-import {getOrderList, getSum} from "../redux/cartSlice";
-import {useSelector} from "react-redux";
+import { getCount, getSum } from "../redux/cartSlice";
+import { useSelector } from "react-redux";
 
 const Header = () => {
-  const orderList = useSelector(getOrderList);
   const sum = useSelector(getSum);
+  const count = useSelector(getCount);
 
   return (
     <div className="header">
@@ -50,7 +50,7 @@ const Header = () => {
                 strokeLinejoin="round"
               />
             </svg>
-            <span>{orderList.length}</span>
+            <span>{count}</span>
           </a>
         </div>
       </div>
