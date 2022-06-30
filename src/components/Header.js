@@ -1,7 +1,12 @@
 import React from "react";
 import logo from "../assets/img/pizza-logo.svg";
+import {getOrderList, getSum} from "../redux/cartSlice";
+import {useSelector} from "react-redux";
 
-const Header = ({ orderSum = 500, orderCount = 10 }) => {
+const Header = () => {
+  const orderList = useSelector(getOrderList);
+  const sum = useSelector(getSum);
+
   return (
     <div className="header">
       <div className="container">
@@ -14,7 +19,7 @@ const Header = ({ orderSum = 500, orderCount = 10 }) => {
         </div>
         <div className="header__cart">
           <a href="/cart.html" className="button button--cart">
-            <span>{orderSum} ₽</span>
+            <span>{sum} ₽</span>
             <div className="button__delimiter" />
             <svg
               width="18"
@@ -45,7 +50,7 @@ const Header = ({ orderSum = 500, orderCount = 10 }) => {
                 strokeLinejoin="round"
               />
             </svg>
-            <span>{orderCount}</span>
+            <span>{orderList.length}</span>
           </a>
         </div>
       </div>
