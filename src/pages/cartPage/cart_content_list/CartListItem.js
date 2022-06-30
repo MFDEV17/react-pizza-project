@@ -1,9 +1,9 @@
 import React from "react";
 
 const CartListItem = ({
-  orderPizzaName = "pizza",
+  orderPizzaName,
   pizzaSize = 26,
-  pizzaDoughType = "Slice",
+  pizzaDoughType,
   currentPizzaCount = 2,
   currentPizzaSum = 1000,
 }) => {
