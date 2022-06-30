@@ -8,8 +8,11 @@ const CartContentList = () => {
 
   return (
     <div className="content__items">
-      {orderList.map((i) => (
+      {orderList.map((i, index) => (
         <CartListItem
+          index={index}
+          currentPizzaSum={i.price}
+          currentPizzaCount={i.count}
           orderPizzaName={i.name}
           pizzaSize={i.size}
           pizzaDoughType={i.dough}
