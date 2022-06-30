@@ -52,7 +52,7 @@ const PizzaItem = ({ img, sizeList, doughList, name, price }) => {
               className={index === selDough ? "active" : null}
               onClick={() => setSelDough(index)}
             >
-              {d === 0 ? "Традиционное" : "Тонкое"}
+              {doughs.get(d)}
             </li>
           ))}
         </ul>
