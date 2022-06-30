@@ -1,7 +1,7 @@
 import React from "react";
 import CartListItem from "./CartListItem";
 import { useSelector } from "react-redux";
-import { getOrderList } from "../../../redux/cartSlice";
+import { getOrderList } from "../../redux/cartSlice";
 
 const CartContentList = () => {
   const orderList = useSelector(getOrderList);
