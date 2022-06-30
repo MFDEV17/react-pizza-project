@@ -1,4 +1,8 @@
+import { useDispatch } from "react-redux";
+import { clearCart } from "../../redux/cartSlice";
+
 const CartTitle = () => {
+  const dispatch = useDispatch();
   return (
     <div className="cart__top">
       <h2 className="content__title">
@@ -71,7 +75,7 @@ const CartTitle = () => {
           />
         </svg>
 
-        <span>Очистить корзину</span>
+        <span onClick={() => dispatch(clearCart())}>Очистить корзину</span>
       </div>
     </div>
   );
