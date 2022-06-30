@@ -14,6 +14,9 @@ const cartSlice = createSlice({
     deleteItem: (state, action) => {
       state.orderList.splice(action.payload, 1);
     },
+    clearCart: (state, _) => {
+      state.orderList = [];
+    }
   },
 });
 
