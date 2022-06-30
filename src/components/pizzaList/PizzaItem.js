@@ -27,8 +27,10 @@ const PizzaItem = ({ img, sizeList, doughList, name, price }) => {
       size: sizes.get(selSize),
       dough: doughs.get(selDough),
       count: 1,
-      currentSum: price
+      currentSum: price,
     };
+
+    setPizzaCount(pizzaCount + 1);
 
     dispatch(addItem(pizza));
   };
@@ -42,7 +44,10 @@ const PizzaItem = ({ img, sizeList, doughList, name, price }) => {
           {sizeList.map((s, index) => (
             <li
               className={index === selSize ? "active" : null}
-              onClick={() => setSelSize(index)}
+              onClick={() => {
+                setSelSize(index);
+                setPizzaCount(0);
+              }}
             >
               {s} см
             </li>
@@ -52,7 +57,10 @@ const PizzaItem = ({ img, sizeList, doughList, name, price }) => {
           {doughList.map((d, index) => (
             <li
               className={index === selDough ? "active" : null}
-              onClick={() => setSelDough(index)}
+              onClick={() => {
+                setSelDough(index);
+                setPizzaCount(0);
+              }}
             >
               {doughs.get(d)}
             </li>
