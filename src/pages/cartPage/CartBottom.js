@@ -1,10 +1,12 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { getCount, getSum } from "../../redux/cartSlice";
+import { useNavigate } from "react-router-dom";
 
 const CartBottom = () => {
   const count = useSelector(getCount);
   const sum = useSelector(getSum);
+  const nav = useNavigate();
 
   return (
     <div className="cart__bottom">
@@ -19,7 +21,7 @@ const CartBottom = () => {
         </span>
       </div>
       <div className="cart__bottom-buttons">
-        <a href="/" className="button button--outline button--add go-back-btn">
+        <span className="button button--outline button--add go-back-btn">
           <svg
             width="8"
             height="14"
@@ -36,8 +38,8 @@ const CartBottom = () => {
             />
           </svg>
 
-          <span>Вернуться назад</span>
-        </a>
+          <span onClick={() => nav("/")}>Вернуться назад</span>
+        </span>
         <div className="button pay-btn">
           <span>Оплатить сейчас</span>
         </div>

@@ -1,9 +1,11 @@
 import emptyCartImg from "../assets/img/empty-cart.png";
+import { useNavigate } from "react-router-dom";
 
 const EmptyCartPage = () => {
+  const nav = useNavigate();
+
   return (
     <div className="wrapper">
-      {/* todo inserts header */}
       <div className="content">
         <div className="container container--cart">
           <div className="cart cart--empty">
@@ -16,9 +18,9 @@ const EmptyCartPage = () => {
               Для того, чтобы заказать пиццу, перейди на главную страницу.
             </p>
             <img src={emptyCartImg} alt="Empty cart" />
-            <a href="/" className="button button--black">
-              <span>Вернуться назад</span>
-            </a>
+            <span className="button button--black">
+              <span onClick={() => nav("/")}>Вернуться назад</span>
+            </span>
           </div>
         </div>
       </div>

@@ -2,10 +2,13 @@ import React from "react";
 import logo from "../assets/img/pizza-logo.svg";
 import { getCount, getSum } from "../redux/cartSlice";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const sum = useSelector(getSum);
   const count = useSelector(getCount);
+
+  const nav = useNavigate();
 
   return (
     <div className="header">
@@ -18,7 +21,7 @@ const Header = () => {
           </div>
         </div>
         <div className="header__cart">
-          <a href="/cart.html" className="button button--cart">
+          <span className="button button--cart" onClick={() => nav("/cart")}>
             <span>{sum} ₽</span>
             <div className="button__delimiter" />
             <svg
@@ -51,7 +54,7 @@ const Header = () => {
               />
             </svg>
             <span>{count}</span>
-          </a>
+          </span>
         </div>
       </div>
     </div>
