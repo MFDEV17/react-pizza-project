@@ -26,6 +26,8 @@ const PizzaItem = ({ img, sizeList, doughList, name, price }) => {
       name: name,
       size: sizes.get(selSize),
       dough: doughs.get(selDough),
+      count: 1,
+      currentSum: price
     };
 
     dispatch(addItem(pizza));
