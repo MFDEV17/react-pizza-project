@@ -6,14 +6,26 @@ const PizzaItem = ({ img, sizeList, doughList, name, price }) => {
   const [selSize, setSelSize] = useState(0);
   const [selDough, setSelDough] = useState(0);
   const [pizzaCount, setPizzaCount] = useState(0);
+
+  const doughs = new Map([
+    [0, "Тонкое"],
+    [1, "Традиционное"],
+  ]);
+
+  const sizes = new Map([
+    [0, 26],
+    [1, 30],
+    [2, 40],
+  ]);
+
   const dispatch = useDispatch();
 
   const addPizzaToOrder = () => {
     const pizza = {
       price: price,
       name: name,
-      size: selSize,
-      dough: selDough,
+      size: sizes.get(selSize),
+      dough: doughs.get(selDough),
     };
 
     dispatch(addItem(pizza));
